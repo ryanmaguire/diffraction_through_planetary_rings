@@ -53,11 +53,10 @@ project:
         - file: chapter_04_planetary_rings/c04s02_stationary_phase_approximation.md
         - file: chapter_04_planetary_rings/c04s03_saturns_rings.md
         - file: chapter_04_planetary_rings/c04s04_the_rings_of_uranus.md
+  bibliography:
+    - bibliography.bib
   exports:
     - format: pdf
       template: plain_latex_book
 site:
     template: book-theme
-    # options:
-    #   favicon: favicon.ico
-    #   logo: site_logo.png
