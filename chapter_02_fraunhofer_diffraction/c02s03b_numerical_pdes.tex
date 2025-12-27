@@ -1,0 +1,113 @@
+A slight digression, having now found the solution to the
+heat equation, we may ask if it serves as a realistic model
+for \textit{heat}. The answer is \textbf{no}.
+Suppose we start with a step function:
+
+\begin{equation}
+    f(x)
+    =
+    \begin{cases}
+        1,&0\leq{x}\leq\frac{L}{2}\\
+        0,&\frac{L}{2}<x\leq{L}
+    \end{cases}
+\end{equation}
+
+We can solve for $u$ using \textit{finite-differences}.
+The first partial derivative is numerically given by:
+
+\begin{equation}
+    \frac{\partial{u}}{\partial{x}}
+    \approx
+    \frac{u(x+\Delta{x},\,t)}{\Delta{x}}
+\end{equation}
+
+where $\Delta{x}$ is a (relatively) small quantity.
+The second partial derivative is then approximated
+by the following:
+
+\begin{equation}
+    \begin{array}{rcl}
+        \displaystyle
+        \frac{\partial^{2}u}{\partial{x}^{2}}
+        &\approx&
+        \displaystyle
+        \frac{%
+            \frac{u(x+\Delta{x},\,t)-u(x,\,t)}{\Delta{x}}%
+            -\frac{u(x,\,t)-u(x-\Delta{x},\,t)}{\Delta{x}}%
+        }{%
+            \Delta{x}%
+        }\\
+        &=&
+        \displaystyle
+        \frac{%
+            u(x+\Delta{x},\,t)-2u(x,\,t)+u(x-\Delta{x},\,t)
+        }{%
+            \Delta{x}^{2}%
+        }
+   \end{array}
+\end{equation}
+
+The heat equation then becomes:
+
+\begin{equation}
+    \frac{\partial{u}}{\partial{t}}
+    \approx
+    \alpha\frac{%
+       u(x+\Delta{x},\,t)-2u(x,\,t)+u(x-\Delta{x},\,t)
+    }{%
+        \Delta{x}^{2}%
+    }
+\end{equation}
+
+Now we use the same approximation scheme for the
+time derivative. We get:
+
+\begin{equation}
+    \begin{array}{rcl}
+        \displaystyle
+        \alpha\frac{%
+           u(x+\Delta{x},\,t)-2u(x,\,t)+u(x-\Delta{x},\,t)
+        }{%
+            \Delta{x}^{2}%
+        }
+        &\approx&
+        \displaystyle
+        \frac{\partial{u}}{\partial{t}}\\
+        &\approx&
+        \displaystyle
+        \frac{u(x,\,t+\Delta{t})-u(x,\,t)}{\Delta{t}}
+    \end{array}
+\end{equation}
+
+We now get the following approximation for
+$u(x,\,t+\Delta{t})$ provided we know $u(x,\,t)$
+for all $x\in[0,\,L]$:
+
+\begin{equation}
+    u(x,\,t+\Delta{t})
+    \approx
+    \alpha\frac{%
+        u(x+\Delta{x},\,t)-2u(x,\,t)+u(x-\Delta{x},\,t)
+    }{%
+        \Delta{x}^{2}%
+    }
+    \Delta{t}
+    +
+    u(x,\,t)
+\end{equation}
+
+To make this numerical, we sample the interval $[0,\,L]$
+with points $0=x_{0}<x_{1}<\cdots<x_{M}=L$ and moments in
+time $t_{0}<t_{1}<\cdots<t_{N}$, where the spatial components
+are equally spaced with displacement $\Delta{x}$, and similarly
+the time moments are equally spaced with step-size $\Delta{t}$.
+We get the following \textit{difference equation}.
+
+\begin{equation}
+    u(x_{m},\,t_{n+1})
+    =
+    \frac{\alpha\Delta{t}}{\Delta{x}^{2}}
+    \Big(
+        u(x_{m+1},\,t_{n})-2u(x_{m},\,t_{n})+u(x_{m-1},\,t_{n})
+    \Big)+u(x_{m},\,t_{n})
+\end{equation}

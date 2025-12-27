@@ -1,0 +1,138 @@
+Let us briefly return to heat. The solution is:
+
+\begin{equation}
+    u(x,\,t)
+    =
+    \sum_{n=1}^{\infty}a_{n}
+        \sin\left(\frac{n\pi{x}}{L}\right)
+        \exp\left(-\frac{n^{2}\pi^{2}\alpha{t}}{L^{2}}\right)
+\end{equation}
+
+Given the \textit{boundary condition} $u(x,\,0)=f(x)$, this reduces to:
+
+\begin{equation}
+    f(x)
+    =
+    \sum_{n=1}^{\infty}a_{n}
+        \sin\left(\frac{n\pi{x}}{L}\right)
+\end{equation}
+
+This is called a \textbf{Fourier series}. In particular, this is the Fourier
+expansion for the function $f$. How do we determine what the coefficients are?
+We first note that the sine function satisfies a certain
+\textit{orthogonality condition}. That is, for integers $m$ and $n$, we have:
+
+\begin{equation}
+    \frac{2}{L}\int_{0}^{L}
+        \sin\left(\frac{n\pi{x}}{L}\right)
+        \sin\left(\frac{m\pi{x}}{L}\right)\,
+        \textrm{d}x
+    =
+    \begin{cases}
+        1,&m=n\\
+        0,&m\ne{n}
+    \end{cases}
+\end{equation}
+
+The right-hand side is common enough to warrant a notation.
+The \textit{Kronecker-$\delta$} function is defined via:
+
+\begin{equation}
+    \delta_{m,\,n}
+    =
+    \begin{cases}
+        1,&m=n\\
+        0,&m\ne{n}
+    \end{cases}
+\end{equation}
+
+We can use this property to develop a formula for the coefficients
+of the Fourier expansion. First, we assume that $f$ is a \textit{nice}
+function, meaning we can swap sums and integrals at will. We write:
+
+\begin{equation}
+    \begin{array}{lrcl}
+        &
+        \displaystyle
+        f(x)\sin\left(\frac{m\pi{x}}{L}\right)
+        &=&
+        \displaystyle
+        \sum_{n=1}^{\infty}
+        a_{n}\sin\left(\frac{n\pi{x}}{L}\right)
+            \sin\left(\frac{m\pi{x}}{L}\right)\\
+        \Longrightarrow
+        &
+        \displaystyle
+        \int_{0}^{L}f(x)
+            \sin\left(\frac{m\pi{x}}{L}\right)\,
+            \textrm{d}x
+        &=&
+        \displaystyle
+        \int_{0}^{L}
+            \sum_{n=1}^{\infty}
+                a_{n}\sin\left(\frac{n\pi{x}}{L}\right)
+                \sin\left(\frac{m\pi{x}}{L}\right)\,
+                \textrm{d}x\\
+        \Longrightarrow
+        &
+        \displaystyle
+        \int_{0}^{L}f(x)
+            \sin\left(\frac{m\pi{x}}{L}\right)\,
+            \textrm{d}x
+        &=&
+        \displaystyle
+        \sum_{n=1}^{\infty}
+            a_{n}
+            \int_{0}^{L}
+                \sin\left(\frac{n\pi{x}}{L}\right)
+                \sin\left(\frac{m\pi{x}}{L}\right)\,
+                \textrm{d}x\\
+        \Longrightarrow
+        &
+        \displaystyle
+        \int_{0}^{L}f(x)
+            \sin\left(\frac{m\pi{x}}{L}\right)\,
+            \textrm{d}x
+        &=&
+        \displaystyle
+        \sum_{n=1}^{\infty}a_{n}\frac{L\delta_{m,\,n}}{2}\\
+        \Longrightarrow
+        &
+        \displaystyle
+        a_{m}
+        &=&
+        \displaystyle
+        \frac{2}{L}
+        \int_{0}^{L}f(x)
+            \sin\left(\frac{m\pi{x}}{L}\right)\,
+            \textrm{d}x
+    \end{array}
+\end{equation}
+
+So, does this work? Let's try an example.
+Consider $f:[0,\,1]\rightarrow\mathbb{R}$ give by:
+
+\begin{equation}
+    f(x)
+    =
+    x(1-x)
+\end{equation}
+
+Simple enough, and it satisfies $f(0)=0$ and $f(1)=0$.
+The Fourier coefficients are then:
+
+\begin{equation}
+    \begin{array}{rcl}
+        \displaystyle
+        a_{n}
+        &=&
+        \displaystyle
+        2\int_{0}^{1}x(1-x)\sin(n\pi{x})\,
+            \textrm{d}x\\
+        \displaystyle
+        &=&
+        \displaystyle
+        \frac{4}{\pi^{3}}
+        \frac{1-(-1)^{n}}{n^{3}}
+    \end{array}
+\end{equation}

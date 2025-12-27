@@ -1,0 +1,147 @@
+Returning to the normal heat equation, we now have a means of
+solving it using \textbf{Fourier series}, and can compute the
+coefficients using the integral formula:
+
+\begin{equation}
+    a_{n}
+    =
+    \frac{2}{L}
+    \int_{0}^{L}f(x)\sin\left(
+        \frac{n\pi{x}}{L}
+    \right)\,\textrm{d}x
+\end{equation}
+
+There are issues about convergence, swapping integrals and sums, etc.,
+but such problems reside in Fourier analysis. Surprising as it may be,
+the real reason this works is that the sine function satisfies the
+following differential equation.
+
+\begin{equation}
+    y^{\prime\prime}(x)
+    +
+    y(x)=0
+\end{equation}
+
+We can consider a more general differential equation,
+called the \textbf{Sturm-Liouvile Equation}:
+
+\begin{equation}
+    \frac{\textrm{d}}{\textrm{d}x}
+    \left(
+        \alpha(x)
+        \frac{\textrm{d}y}{\textrm{d}x}
+    \right)
+    +\big(
+        \lambda{w}(x)+\beta(x)
+    \big)y(x)
+    =0
+\end{equation}
+
+where $\alpha$, $\beta$, and $w$ are smooth functions
+defined on an interval $[a,\,b]$, and where $\alpha$ and
+$w$ are \textit{positive} on this interval as well.
+Given such a problem, there are positive real numbers
+$0<\lambda_{0}<\lambda_{1}<\cdots$ called \textit{eigenvalues}
+and corresponding functions $\varphi_{n}$ called
+\textit{eigenfunctions} satisfying the
+differential equation, and such that for any
+piece-wise continuous
+(not necessarily differentiable, or even continuous!)
+function $f:[a,\,b]\rightarrow\mathbb{R}$, $f$ can be
+written as a sum:
+
+\begin{equation}
+    f(x)
+    =
+    \sum_{n=0}^{\infty}
+        a_{n}\varphi_{n}(x)
+\end{equation}
+
+and the coefficients are given by:
+
+\begin{equation}
+    a_{n}
+    =
+    \int_{a}^{b}
+        f(x)\varphi_{n}(x)w(x)\,
+        \textrm{d}x
+\end{equation}
+
+and moreover, the eigenfunctions are \textit{orthogonal}
+with respect to $w$:
+
+\begin{equation}
+    \int_{a}^{b}
+        \varphi_{m}(x)\varphi_{n}(x)w(x)\,
+        \textrm{d}x
+    =
+    \delta_{m,\,n}
+\end{equation}
+
+Fourier series arise as a special case of Sturm-Liouville
+theory by setting $\alpha(x)=w(x)=1$ and $\beta(x)=0$.
+We could also consider the following differential equation:
+
+\begin{equation}
+    x^{2}y^{\prime\prime}(x)
+    +
+    xy^{\prime}(x)
+    +
+    (x^{2}-\lambda^{2})y(x)
+    =
+    0
+\end{equation}
+
+This is the \textbf{Bessel equation} and the solutions are
+used to model acoustics, heat, and \textit{electromagnetic waves}
+(we'll return to these soon). The solution is given by a
+power series:
+
+\begin{equation}
+    J_{n}(x)
+    =
+    \sum_{k=0}^{\infty}
+        \frac{(-1)^{k}}{k!(n+k)!}\left(
+            \frac{x}{2}
+        \right)^{2k+n}
+\end{equation}
+
+The rest of the Bessel functions can be computed
+using a \textit{recursion} relation. The Bessel functions satisfy
+the following:
+
+\begin{equation}
+    J_{n+2}(x)
+    =
+    \frac{2(n+1)}{x}J_{n+1}(x)
+    -
+    J_{n}(x)
+\end{equation}
+
+Another useful relation relates the derivatives
+of the Bessel functions:
+
+\begin{equation}
+    \frac{\textrm{d}}{\textrm{d}x}
+    \left(
+        x^{n+1}J_{n+1}(x)
+    \right)
+    =
+    x^{n+1}J_{n}(x)
+\end{equation}
+
+Lastly, we will make use of the Bessel integral formula:
+
+\begin{equation}
+    J_{0}(x)
+    =
+    \frac{1}{2\pi}
+    \int_{0}^{2\pi}
+        \exp\big(ix\cos(t)\big)\,
+        \textrm{d}t
+\end{equation}
+
+Our first application of all of this is in deriving a formula
+for the intensity of light through a cylindrically symmetric
+aperture in the Fraunhofer limit. In the case of a circle, we
+obtain \textit{Airy disks}.
