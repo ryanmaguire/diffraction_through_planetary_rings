@@ -69,11 +69,12 @@ def fresnel_rectangular_aperture_plot(width, height, distance, file_name):
     # The intensity map is computed from the outer product of the
     # x and y integrals. This is because these respective integrals
     # are independent of each other, similar to what we saw in the
-    # Fraunhofer limit.
-    intensity = outer_product(y_term, x_term)
-
-    # Scale by the initial intensity, which is the intensity at the origin.
-    intensity = [common.initial_intensity * value for value in intensity]
+    # Fraunhofer limit. Scale by the result by the initial intensity,
+    # which is the intensity at the origin.
+    intensity = [
+        [common.initial_intensity * value for value in row]
+        for row in outer_product(x_term, y_term)
+    ]
 
     # A label for the plot.
     title = "Fresnel Diffraction: Rectangular Aperture"
