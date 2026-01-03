@@ -1,123 +1,10 @@
 # Rectangular Aperture
-Let's repeat the computation for a rectangular aperture, but now
-we shall apply the Fresnel approximation instead of the Fraunhofer one.
-We get:
-
-$$
-    \begin{array}{rcl}
-        \displaystyle
-        U(\mathbf{r})
-        &\approx&
-        \displaystyle
-        \iint_{\mathbb{R}^{2}}
-            U^{\prime}(x^{\prime},\,y^{\prime},\,0)
-            \exp\left(
-                \frac{ik}{2z}\left(
-                    \left(x-x^{\prime}\right)^{2}+
-                    \left(y-y^{\prime}\right)^{2}
-                \right)
-            \right)\,
-            \textrm{d}x^{\prime}\,\textrm{d}y^{\prime}\\
-        &=&
-        \displaystyle
-        \frac{\exp(ikz)}{i\lambda{z}}
-        \int_{-H}^{H}\int_{-W}^{W}
-            \exp\left(
-                \frac{ik}{2z}\left(
-                    \left(x-x^{\prime}\right)^{2}+
-                    \left(y-y^{\prime}\right)^{2}
-                \right)
-            \right)\,
-            \textrm{d}x^{\prime}\,\textrm{d}y^{\prime}\\
-        &=&
-        \displaystyle
-        \frac{\exp(ikz)}{i\lambda{z}}
-        \left(
-            \int_{-H}^{H}\exp\left(
-                \frac{ik}{2z}(y-y^{\prime})^{2}
-            \right)\,
-            \textrm{d}y^{\prime}
-        \right)
-        \left(
-            \int_{-W}^{W}\exp\left(
-                \frac{ik}{2z}(x-x^{\prime})^{2}
-            \right)\,
-            \textrm{d}x^{\prime}
-        \right)
-    \end{array}
-$$
-
-Applying Euler's formula, we are led to the following integrals:
-
-$$
-    \begin{array}{rcl}
-        \displaystyle
-        f(t)
-        &=&
-        \displaystyle
-        \int_{-t}^{t}
-            \cos\left(
-                \frac{\pi}{\lambda{z}}\tau^{2}
-            \right)\,
-            \textrm{d}\tau\\
-        \displaystyle
-        g(t)
-        &=&
-        \displaystyle
-        \int_{-t}^{t}
-            \sin\left(
-                \frac{\pi}{\lambda{z}}\tau^{2}
-            \right)\,
-            \textrm{d}\tau
-    \end{array}
-$$
-
-These are closely related to very well-studied functions,
-the **normalized Fresnel integrals**. They are defined by:
-
-$$
-    \begin{array}{rcl}
-        \displaystyle
-        C(x)
-        &=&
-        \displaystyle
-        \int_{0}^{x}
-            \cos\left(\frac{\pi}{2}t^{2}\right)\,
-            \textrm{d}t\\
-        \displaystyle
-        S(x)
-        &=&
-        \displaystyle
-        \int_{0}^{x}
-            \sin\left(\frac{\pi}{2}t^{2}\right)\,
-            \textrm{d}t
-    \end{array}
-$$
-
-Note, the *unnormalized* Fresnel integrals are quite
-common in mathematics and physics, and are defined by:
-
-$$
-    \begin{array}{rcl}
-        \displaystyle
-        \hat{C}(x)
-        &=&
-        \displaystyle
-        \int_{0}^{x}
-            \cos\left(t^{2}\right)\,
-            \textrm{d}t\\
-        \displaystyle
-        \hat{S}(x)
-        &=&
-        \displaystyle
-        \int_{0}^{x}
-            \sin\left(t^{2}\right)\,
-            \textrm{d}t
-    \end{array}
-$$
+```{include} c03s02_rectangular_aperture.tex
+```
 
 Both the normalized and unnormalized Fresnel integrals
-are provided by `tmpyl`.
+are provided by `tmpyl`. We can make plots using
+[`function_plots.py`](#function_plots.py).
 
 ```{literalinclude}  ../pysrc/fresnel_sine_and_cosine.py
 :lang: python
@@ -129,6 +16,8 @@ are provided by `tmpyl`.
 Fresnel Sine and Cosine
 :::
 
+We can do a similar thing for the normalized Fresnel functions.
+
 ```{literalinclude}  ../pysrc/normalized_fresnel_sine_and_cosine.py
 :lang: python
 :caption: Normalized Fresnel Sine and Cosine
@@ -139,12 +28,37 @@ Fresnel Sine and Cosine
 Normalized Fresnel Sine and Cosine
 :::
 
-Let's use these to craft a solution.
+Let's use these to craft a solution. First we need to create another helper
+function to make plots using the Fresnel integrals. These types of plots can
+be created using the *outer product*. Let's make a function to compute this,
+putting it in `outer_product.py`.
+
+```{literalinclude}  ../pysrc/outer_product.py
+:label: outer_product.py
+:lang: python
+:caption: Outer Product Function
+:start-line:28
+```
+
+Using [outer_product.py](#outer_product.py) we can make a plotting function.
+The following goes in
+`fresnel_rectangular_aperture_plot.py`.
+
+```{literalinclude}  ../pysrc/fresnel_rectangular_aperture_plot.py
+:label: fresnel_rectangular_aperture_plot.py
+:lang: python
+:caption: Fresnel Diffraction Helper Function
+:start-line:31
+```
+
+With
+[`fresnel_rectangular_aperture_plot.py`](#fresnel_rectangular_aperture_plot.py)
+it becomes very straight-forward to make the plots.
 
 ```{literalinclude}  ../pysrc/fresnel_diffraction_rectangular_aperture.py
 :lang: python
 :caption: Fresnel Diffraction - Rectangular Aperture
-:start-line:31
+:start-line:28
 ```
 
 :::{figure} ../images/fresnel_diffraction_rectangular_aperture.png
@@ -158,7 +72,7 @@ the Fresnel functions, as shown below.
 ```{literalinclude}  ../pysrc/fresnel_diffraction_rectangular_fraunhofer_limit.py
 :lang: python
 :caption: Fresnel Diffraction - Rectangular Aperture
-:start-line:31
+:start-line:28
 ```
 
 :::{figure} ../images/fresnel_diffraction_rectangular_fraunhofer_limit.png

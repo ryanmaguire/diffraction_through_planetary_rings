@@ -1,0 +1,72 @@
+The diffraction pattern for a straight edge is given by:
+
+\begin{equation}
+    \def\arraystretch{3em}
+    \begin{array}{rcl}
+        \displaystyle
+        \hat{T}(\rho_{0})
+        \!\!
+        &=&
+        \!\!
+        \displaystyle
+        \frac{1+i}{2F}
+        \int_{-\infty}^{\infty}
+            T(\rho)
+            \exp\left(
+                i\frac{\pi}{2}\left(
+                    \frac{\rho-\rho_{0}}{F}
+                \right)^{2}
+            \right)\,\textrm{d}\rho\\
+        \!\!
+        &=&
+        \!\!
+        \displaystyle
+        \frac{1+i}{2F}
+        \int_{R}^{\infty}
+            \exp\left(
+                i\frac{\pi}{2}
+                \left(
+                    \frac{\rho-\rho_{0}}{F}
+                \right)^{2}
+            \right)\,\textrm{d}\rho
+    \end{array}
+\end{equation}
+
+where $R>0$ is a positive real number, the radius where the straight
+edge occurs. Using Euler's formula, this becomes:
+
+\begin{equation}
+    \hat{T}(\rho_{0})
+    =
+    \frac{1+i}{2F}\int_{R}^{\infty}\left(
+        \cos\left(\frac{\pi}{2}\left(\frac{\rho-\rho_{0}}{F}\right)^{2}\right)
+        +i\sin\left(\frac{\pi}{2}\left(\frac{\rho-\rho_{0}}{F}\right)^{2}\right)
+    \right)\,\textrm{d}\rho
+\end{equation}
+
+The **normalized Fresnel integrals** are defined via:
+
+\begin{equation}
+    \def\arraystretch{2.5em}
+    \begin{array}{rcl}
+        \displaystyle
+        C(x)
+        \!\!
+        &=&
+        \!\!
+        \displaystyle
+        \int_{0}^{x}
+            \cos\left(\frac{\pi}{2}t^{2}\right)\,\textrm{d}t\\
+        S(x)
+        \!\!
+        &=&
+        \!\!
+        \displaystyle
+        \int_{0}^{x}
+            \sin\left(\frac{\pi}{2}t^{2}\right)\,\textrm{d}t
+    \end{array}
+\end{equation}
+
+These are provided by \texttt{tmpyl}, see the example above.
+Use these to write out explicit formulas for the diffraction pattern
+and plot them using Python.

@@ -1,0 +1,139 @@
+# Rectangular Aperture
+Let's repeat the computation for a rectangular aperture, but now
+we shall apply the Fresnel approximation instead of the Fraunhofer one.
+We get:
+
+\begin{equation}
+    \def\arraystretch{2.5em}
+    \begin{array}{rcl}
+        \displaystyle
+        U(\mathbf{r})
+        \!\!
+        &\approx&
+        \!\!
+        \displaystyle
+        \iint_{\mathbb{R}^{2}}
+            U^{\prime}(x^{\prime},\,y^{\prime},\,0)
+            \exp\left(
+                \frac{ik}{2z}\left(
+                    \left(x-x^{\prime}\right)^{2}+
+                    \left(y-y^{\prime}\right)^{2}
+                \right)
+            \right)\,
+            \textrm{d}x^{\prime}\,\textrm{d}y^{\prime}\\
+        \!\!
+        &=&
+        \!\!
+        \displaystyle
+        \frac{\exp(ikz)}{i\lambda{z}}
+        \int_{-H}^{H}\int_{-W}^{W}
+            \exp\left(
+                \frac{ik}{2z}\left(
+                    \left(x-x^{\prime}\right)^{2}+
+                    \left(y-y^{\prime}\right)^{2}
+                \right)
+            \right)\,
+            \textrm{d}x^{\prime}\,\textrm{d}y^{\prime}\\
+        \!\!
+        &=&
+        \!\!
+        \displaystyle
+        \frac{\exp(ikz)}{i\lambda{z}}
+        \left(
+            \int_{-H}^{H}\exp\left(
+                \frac{ik}{2z}(y-y^{\prime})^{2}
+            \right)\,
+            \textrm{d}y^{\prime}
+        \right)
+        \left(
+            \int_{-W}^{W}\exp\left(
+                \frac{ik}{2z}(x-x^{\prime})^{2}
+            \right)\,
+            \textrm{d}x^{\prime}
+        \right)
+    \end{array}
+\end{equation}
+
+Applying Euler's formula, we are led to the following integrals:
+
+\begin{equation}
+    \def\arraystretch{2.5em}
+    \begin{array}{rcl}
+        \displaystyle
+        f(t)
+        \!\!
+        &=&
+        \!\!
+        \displaystyle
+        \int_{-t}^{t}
+            \cos\left(
+                \frac{\pi}{\lambda{z}}\tau^{2}
+            \right)\,
+            \textrm{d}\tau\\
+        \displaystyle
+        g(t)
+        \!\!
+        &=&
+        \!\!
+        \displaystyle
+        \int_{-t}^{t}
+            \sin\left(
+                \frac{\pi}{\lambda{z}}\tau^{2}
+            \right)\,
+            \textrm{d}\tau
+    \end{array}
+\end{equation}
+
+These are closely related to very well-studied functions,
+the \textbf{normalized Fresnel integrals}. They are defined by:
+
+\begin{equation}
+    \def\arraystretch{2.5em}
+    \begin{array}{rcl}
+        \displaystyle
+        C(x)
+        \!\!
+        &=&
+        \!\!
+        \displaystyle
+        \int_{0}^{x}
+            \cos\left(\frac{\pi}{2}t^{2}\right)\,
+            \textrm{d}t\\
+        \displaystyle
+        S(x)
+        \!\!
+        &=&
+        \!\!
+        \displaystyle
+        \int_{0}^{x}
+            \sin\left(\frac{\pi}{2}t^{2}\right)\,
+            \textrm{d}t
+    \end{array}
+\end{equation}
+
+Note, the \textit{unnormalized} Fresnel integrals are quite
+common in mathematics and physics, and are defined by:
+
+\begin{equation}
+    \def\arraystretch{2.5em}
+    \begin{array}{rcl}
+        \displaystyle
+        \hat{C}(x)
+        \!\!
+        &=&
+        \!\!
+        \displaystyle
+        \int_{0}^{x}
+            \cos\left(t^{2}\right)\,
+            \textrm{d}t\\
+        \displaystyle
+        \hat{S}(x)
+        \!\!
+        &=&
+        \!\!
+        \displaystyle
+        \int_{0}^{x}
+            \sin\left(t^{2}\right)\,
+            \textrm{d}t
+    \end{array}
+\end{equation}
