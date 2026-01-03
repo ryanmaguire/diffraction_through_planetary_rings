@@ -33,13 +33,28 @@ from matplotlib import pyplot as plt
 
 def update(temp, time, point, factor):
     """
-        Compute the update for the heat equation
-        using the finite difference method.
+        Function:
+            update
+        Purpose:
+            Computes the update for the heat equation
+            using the finite difference method.
+        Arguments:
+            temp (array):
+                The temperature as a function of space (x) and time (t).
+            time (int):
+                The index for the current time.
+            point (int):
+                The index for the current point.
+            factor (float):
+                The scale factor for the PDE.
+        Output:
+            updated_temp (float):
+                The temperature for the next increment in time.
     """
     forward = temp[time, point + 1]
     backward = temp[time, point - 1]
     center = temp[time, point]
-    shift = forward - 2.0*center + backward
+    shift = forward - 2.0 * center + backward
     return factor * shift + center
 
 # Boundary conditions for heat.
