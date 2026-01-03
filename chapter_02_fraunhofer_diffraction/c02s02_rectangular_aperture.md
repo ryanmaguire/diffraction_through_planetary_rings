@@ -8,7 +8,7 @@ Let's test our derivation in Python.
 ```{literalinclude} ../pysrc/fraunhofer_diffraction_rectangular_aperture.py
 :lang: python
 :caption: Fraunhofer Diffraction in Python
-:start-line:31
+:start-line:30
 ```
 
 If we save this to `fraunhofer_diffraction_rectangular_aperture.py` and then
