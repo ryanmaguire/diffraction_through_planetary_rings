@@ -1,8 +1,9 @@
 version: 1
 project:
   id: 63639018-8659-4d09-bbf4-ad45d30575f0
-  title: Principles of Fresnel Diffraction
-  description: Exploring the mathematics behind Fresnel inversion.
+  title: Diffraction Through Planetary Rings
+  description:
+    - The mathematics and physics behind radio occultations of planetary rings.
   keywords:
     - Physics
     - Optics
