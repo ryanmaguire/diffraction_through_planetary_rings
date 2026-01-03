@@ -72,6 +72,9 @@ def fresnel_rectangular_aperture_plot(width, height, distance, file_name):
     # Fraunhofer limit.
     intensity = outer_product(y_term, x_term)
 
+    # Scale by the initial intensity, which is the intensity at the origin.
+    intensity = [common.initial_intensity * value for value in intensity]
+
     # A label for the plot.
     title = "Fresnel Diffraction: Rectangular Aperture"
 
