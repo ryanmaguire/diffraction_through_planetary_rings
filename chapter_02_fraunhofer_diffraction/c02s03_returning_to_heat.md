@@ -7,7 +7,7 @@ We can implement this in a short Python script.
 ```{literalinclude}  ../pysrc/fourier_series_example.py
 :lang: python
 :caption: Fourier Series in Python
-:start-line:30
+:start-line:33
 ```
 
 This produces the image below.
@@ -46,7 +46,7 @@ Numerical Solution to the Heat Equation
 ```{literalinclude}  ../pysrc/bessel_functions_example.py
 :lang: python
 :caption: Bessel Functions Example
-:start-line:30
+:start-line:33
 ```
 
 :::{figure} ../images/bessel_functions_example.png

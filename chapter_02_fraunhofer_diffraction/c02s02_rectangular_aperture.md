@@ -5,13 +5,16 @@
 ```{literalinclude} ../pysrc/common.py
 :lang: python
 :caption: Common Parameters for Plots
-:start-line:30
+:start-line:31
 ```
+
+With this, we can create a Fraunhofer diffraction pattern.
+Our code then goes like this.
 
 ```{literalinclude} ../pysrc/fraunhofer_diffraction_rectangular_aperture.py
 :lang: python
 :caption: Fraunhofer Diffraction in Python
-:start-line:30
+:start-line:33
 ```
 
 If we save this to `fraunhofer_diffraction_rectangular_aperture.py` and then
