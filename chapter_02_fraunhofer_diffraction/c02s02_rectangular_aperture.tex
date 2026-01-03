@@ -206,3 +206,11 @@ That is, the intensity at $(0,\,0,\,z)$. We have:
         \frac{\pi{y}W}{\lambda{z}}
     \right)^{2}
 \end{equation}
+
+Let's test our derivation in Python.
+It is good programming practice to collect commonly used constants and
+functions in a file (or module, or package, or library, depending on which
+programming language you are using and depending on how many constants and
+functions you need). Several of our programs will be using the same wavelength
+of light and the same setup parameters for the plots and images. Let's collect
+these in a file and call it \texttt{common.py}.

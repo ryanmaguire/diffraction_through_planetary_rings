@@ -2,8 +2,11 @@
 ```{include} c02s02_rectangular_aperture.tex
 ```
 
-Let's test our derivation in Python.
-
+```{literalinclude} ../pysrc/common.py
+:lang: python
+:caption: Common Parameters for Plots
+:start-line:30
+```
 
 ```{literalinclude} ../pysrc/fraunhofer_diffraction_rectangular_aperture.py
 :lang: python
