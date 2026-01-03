@@ -8,8 +8,7 @@
 :start-line:31
 ```
 
-With this, we can create a Fraunhofer diffraction pattern.
-Our code then goes like this.
+We may use this to create a Fraunhofer diffraction pattern.
 
 ```{literalinclude} ../pysrc/fraunhofer_diffraction_rectangular_aperture.py
 :lang: python
