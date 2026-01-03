@@ -37,8 +37,8 @@ fcos = tmpyl.normalized_fresnel_cos
 fsin = tmpyl.normalized_fresnel_sin
 
 # The normalized Fresnel functions do not have the "hats" on them.
-X_LABEL = "$C(x)$"
-Y_LABEL = "$S(x)$"
+C_LABEL = "$C(x)$"
+S_LABEL = "$S(x)$"
 
 # Make the plots.
-fresnel_plots.make_plots(fcos, fsin, X_LABEL, Y_LABEL, __file__)
+fresnel_plots.make_plots(fcos, fsin, C_LABEL, S_LABEL, __file__)
