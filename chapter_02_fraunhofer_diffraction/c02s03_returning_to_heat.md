@@ -4,7 +4,7 @@
 
 We can implement this in a short Python script.
 
-```{literalinclude}  ../pysrc/fourier_series_example.py
+```{literalinclude} ../pysrc/fourier_series_example.py
 :lang: python
 :caption: Fourier Series in Python
 :start-line:33
@@ -23,7 +23,7 @@ Fourier Series Example
 This method is very concrete and can be implemented in just
 a handful of lines.
 
-```{literalinclude}  ../pysrc/numerical_solution_to_the_heat_equation.py
+```{literalinclude} ../pysrc/numerical_solution_to_the_heat_equation.py
 :lang: python
 :caption: Numerical Solution to the Heat Equation
 :start-line:30
@@ -41,12 +41,24 @@ Numerical Solution to the Heat Equation
 ```{include} c02s03d_sturm_liouville_theory.tex
 ```
 
-`tmpyl` provides $J_{0}$ and $J_{1}$.
+It helps to see plots for new concepts.
+Let's write some helper code to make plotting things easier.
+We save the following code to `function_plots.py`:
 
-```{literalinclude}  ../pysrc/bessel_functions_example.py
+```{literalinclude} ../pysrc/function_plots.py
+:label: function_plots.py
+:lang: python
+:caption: Function Plotting Helper
+:start-line:30
+```
+
+`tmpyl` provides $J_{0}$ and $J_{1}$. Let's plot them using
+[`function_plots.py`](#function_plots.py).
+
+```{literalinclude} ../pysrc/bessel_functions_example.py
 :lang: python
 :caption: Bessel Functions Example
-:start-line:33
+:start-line:31
 ```
 
 :::{figure} ../images/bessel_functions_example.png

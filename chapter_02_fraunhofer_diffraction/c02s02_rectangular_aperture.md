@@ -3,14 +3,16 @@
 ```
 
 ```{literalinclude} ../pysrc/common.py
+:label: common.py
 :lang: python
 :caption: Common Parameters for Plots
 :start-line:31
 ```
 
-We may use this to create a Fraunhofer diffraction pattern.
+We may use [`common.py`](#common.py) to create a Fraunhofer diffraction pattern.
 
 ```{literalinclude} ../pysrc/fraunhofer_diffraction_rectangular_aperture.py
+:label: fraunhofer_diffraction_rectangular_aperture.py
 :lang: python
 :caption: Fraunhofer Diffraction in Python
 :start-line:33
