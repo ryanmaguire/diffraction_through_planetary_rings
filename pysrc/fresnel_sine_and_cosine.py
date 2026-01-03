@@ -30,7 +30,7 @@
 # pylint: disable = c-extension-no-member
 
 import tmpyl
-import fresnel_plots
+import function_plots
 
 # This program plots the unnormalized Fresnel functions, provided by tmpyl.
 fcos = tmpyl.fresnel_cos
@@ -41,4 +41,4 @@ C_LABEL = "$\\hat{C}(x)$"
 S_LABEL = "$\\hat{S}(x)$"
 
 # Make the plots.
-fresnel_plots.make_plots(fcos, fsin, C_LABEL, S_LABEL, __file__)
+function_plots.make_plots(fcos, fsin, C_LABEL, S_LABEL, __file__)
