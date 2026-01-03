@@ -19,7 +19,7 @@
 #   <https://www.gnu.org/licenses/>.                                           #
 ################################################################################
 #   Purpose:                                                                   #
-#       Helper function for plotting the Fresnel integrals.                    #
+#       Helper function for plotting Fresnel integrals and Bessel functions.   #
 ################################################################################
 #   Author:     Ryan Maguire                                                   #
 #   Date:       January 3, 2025.                                               #
@@ -28,21 +28,21 @@
 
 import matplotlib.pyplot as plt
 
-def make_plots(fcos, fsin, clabel, slabel, file_name):
+def make_plots(first_func, second_func, first_label, second_label, file_name):
     """
         Function:
             make_plots
         Purpose:
-            Makes plots of the Fresnel sine and cosine functions.
+            Plots two functions across the interval [-5, 5].
         Arguments:
-            fcos (function):
-                The Fresnel cosine function (normalized or unnormalized).
-            fsin (function):
-                The Fresnel sine function (normalized or unnormalized).
-            clabel (str):
-                The label for the Fresnel cosine function.
-            slabel (str):
-                The label for the Fresnel sine function.
+            first_func (function):
+                The first function being plotted (Fresnel cos, Bessel J0, etc.).
+            second_func (function):
+                Second function being plotted (Fresnel sin, Bessel J1, etc.).
+            first_label (str):
+                The label for the first function.
+            second_label (str):
+                The label for the second function.
     """
 
     # Parameters for the plot.
@@ -54,12 +54,12 @@ def make_plots(fcos, fsin, clabel, slabel, file_name):
     displacement = (end - start) / float(number_of_samples)
     x_vals = [start + k * displacement for k in range(number_of_samples)]
 
-    # Compute the Fresnel functions.
-    fresnel_cos_x = fcos(x_vals)
-    fresnel_sin_x = fsin(x_vals)
+    # Evaluate the functions.
+    f_of_x = first_func(x_vals)
+    g_of_x = second_func(x_vals)
 
     # Plot the functions.
-    plt.plot(x_vals, fresnel_cos_x, label = clabel)
-    plt.plot(x_vals, fresnel_sin_x, label = slabel)
+    plt.plot(x_vals, f_of_x, label = first_label)
+    plt.plot(x_vals, g_of_x, label = second_label)
     plt.legend()
     plt.savefig(file_name.rsplit('.', 1)[0] + ".png")
