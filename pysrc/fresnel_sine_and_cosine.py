@@ -2,20 +2,20 @@
 ################################################################################
 #                                   LICENSE                                    #
 ################################################################################
-#   This file is part of newtonian_black_holes.                                #
+#   This file is part of diffraction_through_planetary_rings.                  #
 #                                                                              #
-#   newtonian_black_holes is free software: you can redistribute it and/or     #
-#   modify it under the terms of the GNU General Public License as published   #
-#   by the Free Software Foundation, either version 3 of the License, or       #
-#   (at your option) any later version.                                        #
+#   diffraction_through_planetary_rings is free software: you can redistribute #
+#   it and/or modify it under the terms of the GNU General Public License as   #
+#   published by the Free Software Foundation, either version 3 of the         #
+#   License, or (at your option) any later version.                            #
 #                                                                              #
-#   newtonian_black_holes is distributed in the hope that it will be useful,   #
-#   but WITHOUT ANY WARRANTY; without even the implied warranty of             #
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the              #
+#   diffraction_through_planetary_rings is distributed in the hope that it     #
+#   will be useful, but WITHOUT ANY WARRANTY; without even the implied         #
+#   warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the  #
 #   GNU General Public License for more details.                               #
 #                                                                              #
 #   You should have received a copy of the GNU General Public License          #
-#   along with newtonian_black_holes.  If not, see                             #
+#   along with diffraction_through_planetary_rings.  If not, see               #
 #   <https://www.gnu.org/licenses/>.                                           #
 ################################################################################
 #   Purpose:                                                                   #
@@ -25,18 +25,20 @@
 #   Date:       December 21, 2025.                                             #
 ################################################################################
 """
-# pylint wants all of the variables to be SCREAMING_CASE. Ignore this.
-# pylint: disable = invalid-name
 
-import numpy
-import matplotlib.pyplot as plt
+# pylint has difficulty determining what is inside a C module. Ignore.
+# pylint: disable = c-extension-no-member
+
 import tmpyl
+import fresnel_plots
 
-x = numpy.arange(-5.0, 5.0, 1.0E-2)
-cx = tmpyl.fresnel_cos(x)
-sx = tmpyl.fresnel_sin(x)
+# This program plots the unnormalized Fresnel functions, provided by tmpyl.
+fcos = tmpyl.fresnel_cos
+fsin = tmpyl.fresnel_sin
 
-plt.plot(x, cx, label = "$\hat{C}(x)$")
-plt.plot(x, sx, label = "$\hat{S}(x)$")
-plt.legend()
-plt.savefig(__file__.rsplit('.', 1)[0] + ".png")
+# The unnormalized Fresnel functions have the "hats" on them.
+X_LABEL = "$\\hat{C}(x)$"
+Y_LABEL = "$\\hat{S}(x)$"
+
+# Make the plots.
+fresnel_plots.make_plots(fcos, fsin, X_LABEL, Y_LABEL, __file__)
