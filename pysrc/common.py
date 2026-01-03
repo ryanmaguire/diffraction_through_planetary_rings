@@ -29,6 +29,7 @@
 # pylint wants all of the variables to be SCREAMING_CASE. Ignore this.
 # pylint: disable = invalid-name
 
+# Note: ALL UNITS ARE IN METERS.
 import numpy
 import matplotlib.pyplot as plt
 
