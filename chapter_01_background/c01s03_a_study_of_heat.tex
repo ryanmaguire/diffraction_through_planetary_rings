@@ -1,47 +1,61 @@
 It would be great if we could simply \textit{solve} the three dimensional
 wave equation and obtain a nice formula for $\mathbf{E}$ and $\mathbf{B}$,
-but such a problem isn't even \textit{well-posed}. The solutions to these
-equations are highly sensitive to the \textit{initial conditions}, which are
+but such a problem isn't even \textit{well-posed}.
+\footnote{
+    Just like asking which function $y$ satisfies
+    $y^{\prime\prime}(x)=y(x)$. There are infinitely many such functions,
+    but if we are given the values of $y(x_{0})$ and $y^{\prime}(x_{0})$
+    for some fixed real number $x_{0}$, then we may solve this equation
+    uniquely. The wave equation is much harder since it involves partial
+    derivatives in four variables.
+}
+The solutions to these equations are highly sensitive to the
+\textit{initial conditions}, which are
 values for $\mathbf{E}$ and $\mathbf{B}$ for all points in
 space at a single given time moment $t_{0}$. But even with a chosen
 set of initial conditions for $\mathbf{B}$ and $\mathbf{E}$, solving
 these partial differential equations (in four variables!) is difficult.
 
 We first resort to a slightly simpler problem, the idea of using mathematics
-to model heat transfer. This was accomplished by Joseph Fourier in 1822,
-and his methods led to the discovery of \textit{Fourier analysis},
-\textit{Fourier series}, and \textit{Fourier transforms}.
+to model heat transfer. This was accomplished by Joseph Fourier
+(1768 -- 1830 C.E.) in 1822, and his methods led to the discovery of
+\textit{Fourier analysis}, \textit{Fourier series}, and
+\textit{Fourier transforms} [\cite{FourierAnalyticalTheoryOfHeat}].
 Astronomers and physicists make frequent use of these ideas,
 and the equations we will describe later
-concern the field of \textit{Fourier optics}.
+concern the field of \textit{Fourier optics}
+[\cite{GoodmanIntroductionToFourierOptics}].
 
-Fourier considers a bar of finite length $L$. The left and right
-endpoints are held to fixed temperatures, $T_{L}$ and $T_{R}$,
-respectively, and we do not require that $T_{L}=T_{R}$.
+Fourier considers a bar of finite length $L$
+[\cite[p.~1-22]{GonzalezVelascoFourierAnalysisAndBoundaryValueProblems}].
+The left and right endpoints are held to fixed temperatures,
+$T_{L}$ and $T_{R}$, respectively, and we do not require that $T_{L}=T_{R}$.
 At time $t_{0}$ the heat distribution across the bar is given
 by some smooth function $f(x)=u(x,\,t_{0})$. Fourier then derives
 that $u$ satisfies the following partial differential equation:
 
 \begin{equation}
+    \label{eq:heat_equation}
     \frac{\partial{u}}{\partial{t}}
     =
     \alpha\frac{\partial^{2}u}{\partial{x}^{2}}
 \end{equation}
 
-Where $\alpha$ is some constant parameter.
+where $\alpha$ is some constant parameter.
 Fourier then proposes the following solution.
 Suppose $u$ can be written as the product of spatial and
 temporal components. That is, suppose there are functions
 $X$ and $T$ such that:
 
 \begin{equation}
+    \label{eq:separation_of_variables}
     u(x,\,t)
     =
     X(x)\,T(t)
 \end{equation}
 
-The heat equation then becomes (the $\Longrightarrow$ symbols reads as
-\textit{implies}):
+The \hyperref[eq:heat_equation]{heat equation} then becomes
+(the $\Longrightarrow$ symbols reads as \textit{implies}):
 
 \begin{equation}
     \def\arraystretch{2.5em}
@@ -102,6 +116,7 @@ We then get the following
 
 \begin{equation}
     \def\arraystretch{2.5em}
+    \label{eq:heat_equation_separation_of_variables}
     \begin{array}{rcl}
         \displaystyle
         \frac{\textrm{d}T}{\textrm{d}t}(t)
@@ -165,7 +180,7 @@ where $n$ is an integer.
 The solution using this method yields:
 
 \begin{equation}
-    \displaystyle
+    \label{eq:heat_equation_simple_solution}
     u(x,\,t)
     =
     a\sin\left(\frac{n\pi{x}}{L}\right)
@@ -180,12 +195,12 @@ that tells us how the heat was originally distributed across the bar.
 Fourier notices that if $u_{0}$ and $u_{1}$ are solutions to the
 heat equation, then so is $b_{0}u_{0}+b_{1}u_{1}$ for any real (or complex)
 numbers $b_{0}$ and $b_{1}$. That is, the heat equation is a
-\textit{linear partial differential equation}. He the proposed summing
+\textit{linear partial differential equation}. He then proposed summing
 together \textit{infinitely many} of these partial solutions to obtain the
 solution $u$ that satisfies $u(x,\,t_{0})=f(x)$. That is:
 
 \begin{equation}
-    \displaystyle
+    \label{eq:heat_equation_fourier_series}
     u(x,\,t)
     =
     \sum_{n=1}^{\infty}a_{n}

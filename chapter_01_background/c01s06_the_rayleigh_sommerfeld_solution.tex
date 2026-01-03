@@ -1,5 +1,6 @@
-Our method of solution transforms this differential equation
-into an \textit{integral equation}. If we know
+Our method of solution transforms the
+\hyperref[eq:helmholtz_equation]{Helmholtz equation} from a differential
+equation into an \textit{integral equation}. If we know
 $U^{\prime}(x^{\prime},\,y^{\prime},\,0)$ for each
 $(x^{\prime},\,y^{\prime})$ in the $z=0$ plane, then the
 solution for $U(x,\,y,\,z)$ is:
@@ -18,7 +19,7 @@ solution for $U(x,\,y,\,z)$ is:
             U^{\prime}(x^{\prime},\,y^{\prime},\,0)
             \frac{z\exp\left(ikr\right)}{r^{2}}
             \left(
-                1-\frac{1}{kr}
+                1-\frac{1}{ikr}
             \right)\,\textrm{d}x^{\prime}\,\textrm{d}y^{\prime}\\
         \!\!
         &=&
@@ -29,7 +30,7 @@ solution for $U(x,\,y,\,z)$ is:
             U^{\prime}(\rho^{\prime},\,\phi^{\prime})
             \frac{z\rho^{\prime}\exp\left(ikr\right)}{r^{2}}
             \left(
-                1-\frac{1}{kr}
+                1-\frac{1}{ikr}
             \right)\,\textrm{d}\phi^{\prime}\textrm{d}\rho^{\prime}\\
     \end{array}
 \end{equation}

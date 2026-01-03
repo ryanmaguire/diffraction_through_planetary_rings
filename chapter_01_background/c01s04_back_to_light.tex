@@ -1,7 +1,8 @@
 While it is worthwhile investigating thermodynamics
 and the heat equation, our current objective is to solve the
 \textit{wave equation}, not the heat equation. We mimic Fourier's
-method, now known as the method of \textit{separation of variables},
+method, now known as the method of
+\hyperref[eq:separation_of_variables]{separation of variables},
 and try and derive a solution to the wave equation.
 
 Let us shift the notation from $\mathbf{E}(\mathbf{r},\,t)$
@@ -32,7 +33,7 @@ Separating the wave equation, we obtain:
     \frac{\nabla^{2}U(\mathbf{r})}{U(\mathbf{r})}
     =
     \frac{1}{c^{2}T(t)}
-    \frac{\partial{T}}{\partial{t}}(t)
+    \frac{\textrm{d}T}{\textrm{d}t}(t)
 \end{equation}
 
 We again argue that since the left side depends only on
@@ -42,6 +43,7 @@ constant to $-k^{2}$, and the spatial component
 becomes:
 
 \begin{equation}
+    \label{eq:helmholtz_equation}
     \nabla^{2}U(\mathbf{r})
     +
     k^{2}U(\mathbf{r})
@@ -50,7 +52,7 @@ becomes:
 \end{equation}
 
 This is the \textbf{Helmholtz Equation}, which is also known as the
-\textbf{Time-Independent Wave Equation}. The are various methods of
+\textbf{Time-Independent Wave Equation}. There are various methods of
 tackling this problem, including using separation of variables
 \textit{again}. Depending on the coordinate system we use
 (spherical, cylindrical, Cartesian, or other stranger systems),
