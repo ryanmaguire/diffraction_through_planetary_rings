@@ -2,41 +2,39 @@
 ################################################################################
 #                                   LICENSE                                    #
 ################################################################################
-#   This file is part of newtonian_black_holes.                                #
+#   This file is part of diffraction_through_planetary_rings.                  #
 #                                                                              #
-#   newtonian_black_holes is free software: you can redistribute it and/or     #
-#   modify it under the terms of the GNU General Public License as published   #
-#   by the Free Software Foundation, either version 3 of the License, or       #
-#   (at your option) any later version.                                        #
+#   diffraction_through_planetary_rings is free software: you can redistribute #
+#   it and/or modify it under the terms of the GNU General Public License as   #
+#   published by the Free Software Foundation, either version 3 of the         #
+#   License, or (at your option) any later version.                            #
 #                                                                              #
-#   newtonian_black_holes is distributed in the hope that it will be useful,   #
-#   but WITHOUT ANY WARRANTY; without even the implied warranty of             #
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the              #
+#   diffraction_through_planetary_rings is distributed in the hope that it     #
+#   will be useful, but WITHOUT ANY WARRANTY; without even the implied         #
+#   warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the  #
 #   GNU General Public License for more details.                               #
 #                                                                              #
 #   You should have received a copy of the GNU General Public License          #
-#   along with newtonian_black_holes.  If not, see                             #
+#   along with diffraction_through_planetary_rings.  If not, see               #
 #   <https://www.gnu.org/licenses/>.                                           #
 ################################################################################
 #   Purpose:                                                                   #
-#       Uses tmpyl to plot the Bessel functions.                               #
+#       Use tmpyl to plot the Bessel functions.                                #
 ################################################################################
 #   Author:     Ryan Maguire                                                   #
 #   Date:       December 21, 2025.                                             #
 ################################################################################
 """
-# pylint wants all of the variables to be SCREAMING_CASE. Ignore this.
-# pylint: disable = invalid-name
 
-import numpy
-import matplotlib.pyplot as plt
+# pylint has difficulty determining what's inside a C module. Ignore.
+# pylint: disable = c-extension-no-member
+
 import tmpyl
+from function_plots import make_plots
 
-x = numpy.arange(-5.0, 5.0, 1.0E-2)
-j0 = tmpyl.bessel_j0(x)
-j1 = tmpyl.bessel_j1(x)
+# Labels for the two functions.
+J0_LABEL = "$J_{0}(x)$"
+J1_LABEL = "$J_{1}(x)$"
 
-plt.plot(x, j0, label = "J0(x)")
-plt.plot(x, j1, label = "J1(x)")
-plt.legend()
-plt.savefig(__file__.rsplit('.', 1)[0] + ".png")
+# Plot the functions and save them to a PNG.
+make_plots(tmpyl.bessel_j0, tmpyl.bessel_j1, J0_LABEL, J1_LABEL, __file__)
