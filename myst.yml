@@ -54,6 +54,9 @@ project:
         - file: chapter_04_planetary_rings/c04s02_stationary_phase_approximation.md
         - file: chapter_04_planetary_rings/c04s03_saturns_rings.md
         - file: chapter_04_planetary_rings/c04s04_the_rings_of_uranus.md
+    # - title: Appendix - Complex Analysis
+    #   children:
+    #     - file: appendix_01_complex_analysis/a01s01_complex_numbers.tex
   bibliography:
     - bibliography.bib
   exports:
